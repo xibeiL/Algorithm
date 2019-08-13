@@ -1,0 +1,20 @@
+'''
+O(n^2)
+稳定
+从右边无序序列中取出第i个元素，将其插入到前面正确的顺序中
+'''
+def insert_sort(alist):
+    n = len(alist)
+    for j in range(1,n):
+        i = j
+        while i > 0 :
+            if alist[i] < alist[i-1]:
+                alist[i],alist[i-1] = alist[i-1],alist[i]
+                i -= 1
+            else:
+                break
+if __name__ =='__main__':
+    a = [14,12,15,13,19,16,20]
+    print(a)
+    insert_sort(a)
+    print(a)
