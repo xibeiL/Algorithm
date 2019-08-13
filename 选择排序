@@ -1,0 +1,18 @@
+'''
+O(n^2)
+不稳定
+从后面无序状态下的序列中选出最小的，放到前面的固定位置
+'''
+def select_sort(alist):
+    n = len(alist)
+    for j in range(n-1):
+        min = j
+        for i in range(j+1,n):
+            if alist[i] < alist[min]:
+                min = i
+        alist[j],alist[min] = alist[min],alist[j]
+if __name__ =='__main__':
+    a = [14,12,15,13,19,16,20]
+    print(a)
+    select_sort(a)
+    print(a)
