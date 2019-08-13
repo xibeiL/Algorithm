@@ -1,0 +1,34 @@
+# def binarySearch(alist,item):
+#
+#     n = len(alist)
+#     if n > 0:
+#         midvalue = n//2
+#         if alist[midvalue] == item:
+#             return True
+#         elif alist[midvalue] > item:
+#             return binarySearch(alist[0:midvalue],item)
+#         else:
+#             return binarySearch(alist[midvalue+1:],item)
+# if __name__ == '__main__':
+#     li = [1,2,3,4,5,6,7,8,9,10]
+#     print(binarySearch(li,4))
+#     print(binarySearch(li,99))
+
+
+def binarysearch(alist,item):
+    n = len(alist)
+    first = 0
+    last = n - 1
+    while first <= last:
+        midvalue = (first + last)//2
+        if alist[midvalue] == item:
+            return True
+        elif alist[midvalue] > item:
+            last = midvalue -  1
+        else:
+            first = midvalue + 1
+    return False
+if __name__ == '__main__':
+    li = [1,2,3,4,5,6,7,8,9,10]
+    print(binarysearch(li,4))
+    print(binarysearch(li,99))
