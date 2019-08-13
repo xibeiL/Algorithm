@@ -1,0 +1,30 @@
+'''
+O(nlogn)
+稳定
+将序列拆成两部分，直至拆成单个元素，排序，开始合并
+'''
+def mergeSort(alist):
+    n = len(alist)
+    if n <= 1:
+        return alist
+    midvalue = n // 2
+    leftli = mergeSort(alist[:midvalue])
+    rightli = mergeSort(alist[midvalue:])
+    result = []
+    left = 0
+    right = 0
+    while left < len(leftli) and right < len(rightli):
+        if leftli[left] >rightli[right]:
+            result.append(rightli[right])
+            right +=1
+        else:
+            result.append(leftli[left])
+            left += 1
+    result = result + leftli[left:]
+    result = result + rightli[right:]
+    return result
+if __name__ == '__main__':
+    ll = [54,21,56,25,1,8,36,25,12,11,15,18,16,63,54,14,52]
+    print (ll)
+    lll = mergeSort(ll)
+    print (lll)
